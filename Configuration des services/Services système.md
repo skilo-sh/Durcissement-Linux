@@ -24,7 +24,7 @@
 - `pam_wheel` permet de restreindre un accès aux utilisateurs membres d’un groupe particulier (wheel par défaut) ;
 - `pam_mktemp` permet de fournir des répertoires temporaires privés par utilisateur sous /tmp ;
 - `pam_namespace` permet de créer un espace de noms privés par utilisateur.
-Il est également nécessaire de vérifier les permissions associées au fichiers de configuration du PAM --- seul root doit y avoir accès en écriture.
+Il est également nécessaire de vérifier les permissions associées au fichiers de configuration du PAM — seul root doit y avoir accès en écriture.
 # Name Service Switch ou service de gestion de noms
 
 > [!warning] Sécuriser les accès aux bases utilisateur distantes

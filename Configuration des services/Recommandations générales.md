@@ -1,4 +1,4 @@
-Quelques recommandations générales --- essentiellement basé sur le guide de l'ANSSI :
+Quelques recommandations générales — essentiellement basées sur le guide de l'ANSSI :
 
 > [!error] Désactiver les services non nécessaires
 > - *Objectifs et intérêts* : Lors de l’installation d’une distribution, certains services sont installés par défaut selon le choix des mainteneurs de la distribution. Ces services ne correspondent pas forcément aux besoins propres. Désactiver les services non nécessaires permet de réduire la surface d'attaque.

@@ -16,7 +16,7 @@ Ce guide s'inscrit dans le contexte suivant : durcissement d'une machine virtuel
 
 La structure de nos sections reprends celle utilisée dans le guide de l'ANSSI (cf. [ANSSI_LINUX]) :
 - [Configuration matérielle](Configuration%20matérielle/Configuration%20matérielle.md) ;
-- Configuration du noyau Linux ;
+- [Configuration du noyau Linux](Configuration%20du%20noyau/Configuration%20du%20noyau) ;
 - Configuration système ;
 - [Configuration des services](Configuration%20des%20services/Configuration%20des%20services.md).
 

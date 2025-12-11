@@ -1,4 +1,3 @@
-
 > [!warning] Configurer un mot de passe pour le chargeur de démarrage
 > 
 > - _Objectifs et intérêts_ : L'objectif est de bloquer les tentatives de modification des paramètres du noyau au démarrage (ex: passage en mode *single user* ou injection d'un shell via `init=/bin/bash`). Sans cette protection, un attaquant disposant d'un accès physique ou d'un accès à la console virtuelle peut contourner l'authentification du système et obtenir les droits `root`. Le mot de passe GRUB assure que seule une personne autorisée peut modifier la séquence d'amorçage.

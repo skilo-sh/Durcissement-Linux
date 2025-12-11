@@ -5,7 +5,7 @@
 Identifier les services essentiels et les mesures de durcissement adaptées pour mettre
 en œuvre des solutions destinées à retarder la compromission d’un système.
 
-Voici les sous-sections :
+Voici les sous-sections associées à cette section :
 - [Recommandations générales](Recommandations%20générales.md) ;
 - [Recommandations relatives à SSH](SSH.md) ;
 - [Recommandations relatives au cloisonnement](Cloisonnement.md) ;
