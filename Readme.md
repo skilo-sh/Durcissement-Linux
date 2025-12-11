@@ -2,7 +2,7 @@ Cette page décrit les
 # Niveau de sécurité
 ## Niveau de sécurité ANSSI
 La table 1 ci-dessous décrit la signification des différents niveaux de sécurité implémentés par l'ANSSI dans son guide [ANSSI_LINUX] :
-![[Pasted image 20251211151219.png]]
+![[table-1.png|500|center]]
 Notre wiki traite les niveaux, à partir de minimal (i.e. M) jusqu'à renforcé (i.e. MIR).
 ## Niveau de sécurité "universelle"
 Notre wiki implémente une notion de niveau de sécurité "universelle", c'est à dire que nous associons les niveaux de sécurités des guides usuelles vers un niveau ternaire indexé.
