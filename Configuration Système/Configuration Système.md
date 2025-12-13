@@ -6,11 +6,11 @@
 
 Voici les sous-sections associées à ce chapitre:
 - [Partitionnement](Partitionnement.md) ;
-- [Comptes d'accès](Comptes d'accès.md) ;
-- [Contrôle d'accès](Contrôle d'accès.md)
-- [Fichiers et répertoires](Fichiers et et répertoires.md)
-- [Gestion des paquets](Gestion des paquets.md)
-- [Veille et maintenance](Veille et maintenance.md)
+- [Comptes d'accès](Comptes%20d'accès.md) ;
+- [Contrôle d'accès](Contrôle%20d'accès.md)
+- [Fichiers et répertoires](Fichiers%20et%20répertoires.md)
+- [Gestion des paquets](Gestion%20des%20paquets.md)
+- [Veille et maintenance](Veille%20et%20maintenance.md)
 
 
 
