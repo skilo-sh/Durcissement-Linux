@@ -3,7 +3,7 @@ Le partitionnement est la première mesure structurelle de durcissement “syst�
 > [!danger] Partionnement type
 >- **Objectifs et intérêts :** L'objectif principal de cette mesure, à savoir la segmentation du système en plusieurs partitions/volumes logiques, est de réduire la surface d'attaque en isolant les zones critiques, limiter les conséquences d'un incident et empêcher l'exploitation directe de répertoires sensibles. De ce fait, il est nécessaire d'avoir un partitionnement type, comme recommandé par l'ANSSI, permettant d'assurer cet objectif (cf Tableau 1).
 >- **Procédure :** 
->	- Après vérification de votre arborescence et des volumes déjà présents, vous pouvez créer un volume logique pour chaque point de montage via l'exemple générique suivant (ici, le nom de ce dernier est "vg0" et les paramètres utilisés sont arbitraires): 
+>	- Après vérification de votre arborescence et des volumes déjà présents, il est nécessaire de créer un volume logique pour chaque point de montage via l'exemple générique suivant (ici, le nom de ce dernier est "vg0" et les paramètres utilisés sont arbitraires): 
 >		- **Création du volume logique:**
 >			 ```
 >			 lvcreate -L 5G -n lv_var vg0
@@ -33,7 +33,7 @@ Le partitionnement est la première mesure structurelle de durcissement “syst�
 >		 /dev/vg0/lv_var /var ext4 defaults,nodev,nosuid,noexec      0  2
 >		 ```
 >- **Commentaires :** Cette mesure est effectivement vitale et doit s'appliquer à tous les systèmes GNU/Linux. Néanmoins, il est important de mentionner qu'en fonction des systèmes et distributions (ainsi que les versions de ces derniers), certaines options de montage ne seront pas ou peu applicables, et il sera de fait nécessaire d'adapter le partitionnement et de mettre en place des alternatives. De plus, Lynis n'est ici d'aucune aide, étant donné qu'il ne traite pas de la sécurité des partitions/systèmes de fichiers.
->- **Référence :** Règle R28 du guide de l'ANSSI "RECOMMANDATIONS DE CONFIGURATION D'UN SYSTÈME GNU/LINUX"
+>- **Référence :** ANSSI_LINUX, R28
 
 **Tableau 1 :**
 
@@ -52,12 +52,12 @@ Le partitionnement est la première mesure structurelle de durcissement “syst�
 | /var/tmp         | nosuid,nodev,noexec                    | Fichiers temporaires conservés après extinction                                                                     |
 
 > [!error] Restreindre les accès au dossier /boot 
-> - *Objectifs et intérêts* : Le répertoire `/boot` contient les éléments les plus sensibles de la chaîne de démarrage : noyau Linux, initramfs, chargeur de démarrage et leurs configurations. Ainsi, restreindre son accès permet de prévenir l’altération du noyau, la mise en place d’un bootkit ou encore la modification de paramètres critiques du démarrage. De plus, la protection du répertoire `/boot` s’inscrit dans le principe de défense en profondeur, en empêchant un attaquant ayant un accès local non-root d’altérer le système.
+> - *Objectifs et intérêts* : Le répertoire `/boot` contient les éléments les plus sensibles de la chaîne de démarrage : noyau Linux, initramfs, chargeur de démarrage et leurs configurations etc. Ainsi, restreindre son accès permet de prévenir l’altération du noyau, la mise en place d’un bootkit ou encore la modification de paramètres critiques du démarrage. De plus, la protection du répertoire `/boot` s’inscrit dans le principe de défense en profondeur, en empêchant à titre d'exemple un attaquant ayant un accès local non-root d’altérer le système.
 >
 > - *Commentaires* :
->   - Le guide de l'ANSSI recommande, **lorsque cela est compatible avec l’environnement**, de ne **pas monter automatiquement** la partition `/boot`.  
->   - Dans tous les cas, **seul l'utilisateur root** doit pouvoir lire et écrire dans le répertoire `/boot` (`chmod 700 /boot`).  
->   - Sur Debian et dérivées, `dpkg` peut être configuré pour exécuter automatiquement des commandes avant/après installation de paquets affectant `/boot`.
+>   - Le guide de l'ANSSI recommande, lorsque cela est compatible avec l’environnement, de ne pas monter automatiquement la partition `/boot`.  
+>   - Dans tous les cas, seul l'utilisateur root doit pouvoir lire et écrire dans le répertoire `/boot` (`chmod 700 /boot`).  
+>   - En ce qui concerne les systèmes Debian et autres OS dérivés, `dpkg` peut être configuré pour exécuter automatiquement des commandes avant/après installation de paquets affectant `/boot`.
 >
 > - *Procédure détaillée* :
 >   1. **Identifier la partition `/boot`** :
@@ -83,18 +83,18 @@ Le partitionnement est la première mesure structurelle de durcissement “syst�
 >      - `nodev`  : interdit les fichiers de périphériques.
 >      - `noexec` : interdit l’exécution de binaires.
 >      - `noauto` : empêche le montage automatique au démarrage.
->   5. **Appliquer la configuration**:
+>   5. **Appliquer la configuration mentionnée précédemment**:
 >      ```bash
 >      umount /boot
 >      mount -o remount /boot
 >      ```
->   6. **Vérification finale de sécurité** :
+>   6. **On vérifie que tout a été correctement appliqué** :
 >      ```bash
 >      findmnt /boot
 >      ls -ld /boot
 >      ```
 >
 > - *Comparaison avec Lynis* :
->   En ce qui concerne Lynis, ce dernier vérifie les permissions de fichiers sensibles et le paramétrage du chargeur de démarrage, mais **ne détecte pas l’usage de `noauto`**, ni la politique de montage stricte du répertoire `/boot`. De ce fait, une validation manuelle reste indispensable pour atteindre un niveau de durcissement satisfaisant.
->
-> - *Référence* : ANSSI_LINUX, R29 (Recommandations de configuration d’un système GNU/Linux, section partitionnement) 
+>   En ce qui concerne Lynis, ce dernier vérifie les permissions de fichiers sensibles et le paramétrage du chargeur de démarrage, mais ne détecte pas l’usage de `noauto`, ni la politique de montage stricte du répertoire `/boot`. De ce fait, une validation manuelle reste indispensable pour atteindre un niveau de durcissement satisfaisant.
+> - *Référence* : ANSSI_LINUX, R29
+

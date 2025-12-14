@@ -1,12 +1,11 @@
 La gestion des paquets constitue une étape critique de la sécurisation d’un système Debian GNU/Linux. Les paquets installés déterminent directement les fichiers présents sur le système ainsi que les services et fonctionnalités exposés. Conformément aux recommandations du guide de l’ANSSI, seuls les paquets strictement nécessaires doivent être installés et maintenus dans le temps, afin de limiter la surface d’attaque et de garantir un système maîtrisé et durablement sécurisé.
 
 > [!error] N’installer que les paquets strictement nécessaires
-> - *Objectifs et intérêts* : Réduire la surface d’attaque du système en limitant le nombre de paquets installés au strict nécessaire. Chaque paquet supplémentaire introduit du code, des dépendances, des fichiers et parfois des services actifs, augmentant le risque de vulnérabilités, de mauvaises configurations ou de services exposés inutilement.
+> - *Objectifs et intérêts* : L'objectif principal de cette recommandation est de réduire la surface d’attaque du système en limitant le nombre de paquets installés au strict nécessaire. Ainsi, chaque paquet supplémentaire introduit du code, des dépendances, des fichiers et parfois des services actifs, augmentant le risque de vulnérabilités, de mauvaises configurations ou de services exposés inutilement.
 >
 > - *Commentaires* :
->   - Une installation minimaliste facilite la maintenance, l’audit et la mise à jour du système.
->   - Les environnements serveur n’ont généralement pas besoin d’interface graphique locale (X11, Wayland, gestionnaires de fenêtres).
->   - Les « rôles » ou profils d’installation préconfigurés proposés par certaines distributions sont déconseillés : ils reflètent des choix génériques des mainteneurs, rarement adaptés à un contexte métier précis.
+>   - Il est trivial qu'une installation minimaliste facilite la maintenance, l’audit et la mise à jour du système. Qui plus est, les environnements serveur n’ont généralement pas besoin d’interface graphique locale (X11, Wayland, gestionnaires de fenêtres).
+>   - Les « rôles » ou profils d’installation préconfigurés proposés par certaines distributions sont déconseillés : ils reflètent des choix génériques des mainteneurs, rarement adaptés à un contexte précis.
 >
 > - *Procédure détaillée* :
 >   1. **Installer le système en mode minimal** :
@@ -45,16 +44,15 @@ La gestion des paquets constitue une étape critique de la sécurisation d’un 
 >      ```
 >
 > - *Comparaison avec Lynis* :
->   Lynis peut signaler la présence de certains paquets à risque ou inutiles (ex. environnement graphique sur serveur), mais il ne dispose pas de la connaissance du besoin métier. La validation de cette règle repose donc sur une analyse fonctionnelle manuelle.
+>   Lynis peut signaler la présence de certains paquets à risque ou inutiles (ex. environnement graphique sur serveur).
 >
 > - *Référence* : [ANSSI_LINUX, R58]
 
 > [!error] Utiliser uniquement des dépôts de paquets de confiance
-> - *Objectifs et intérêts* : Garantir l’intégrité et l’authenticité des paquets installés sur le système. L’utilisation de dépôts non officiels ou non maîtrisés expose à l’installation de paquets malveillants, modifiés ou insuffisamment maintenus.
+> - *Objectifs et intérêts* : Suite à la précédente mesure de sécurité, il est primordial de garantir l’intégrité et l’authenticité des paquets installés sur le système. De ce fait, l’utilisation de dépôts non officiels ou non maîtrisés expose à l’installation de paquets malveillants, modifiés ou insuffisamment maintenus.
 >
 > - *Commentaires* :
 >   - Seuls les dépôts officiels de la distribution ou les dépôts internes à l’organisation doivent être utilisés.
->   - Les dépôts tiers ajoutés sans justification claire constituent un risque majeur.
 >
 > - *Procédure détaillée* :
 >   1. **Lister les dépôts configurés** :
@@ -80,16 +78,15 @@ La gestion des paquets constitue une étape critique de la sécurisation d’un 
 >      ```
 >
 > - *Comparaison avec Lynis* :
->   Lynis détecte la présence de dépôts tiers ou non signés, mais ne valide pas la légitimité organisationnelle d’un dépôt interne. Une revue humaine reste nécessaire.
+>   Lynis détecte la présence de dépôts tiers ou non signés.
 >
 > - *Référence* : [ANSSI_LINUX, R59]
 
 > [!info] Utiliser des dépôts de paquets durcis
-> - *Objectifs et intérêts* : Privilégier les paquets intégrant des mécanismes de durcissement supplémentaires (options de compilation sécurisées, correctifs spécifiques, configurations par défaut restrictives) afin de réduire l’impact potentiel d’une vulnérabilité.
+> - *Objectifs et intérêts* : En complément de la sécurisation de la gestion des paquets, il est vital de privilégier les paquets intégrant des mécanismes de durcissement supplémentaires (options de compilation sécurisées, correctifs spécifiques, configurations par défaut restrictives) afin de réduire l’impact potentiel d’une vulnérabilité.
 >
 > - *Commentaires* :
->   - Certaines distributions proposent des variantes de paquets plus durcies ou mieux maintenues.
->   - Les miroirs de dépôts doivent être des copies conformes, à jour, et issus de sources officielles.
+>   - Certaines distributions proposent des variantes de paquets plus durcies ou mieux maintenues (à étudier au cas par cas) tandis que les miroirs de dépôts doivent être des copies conformes, à jour, et issus de sources officielles.
 >
 > - *Procédure détaillée* :
 >   1. **Utiliser les dépôts officiels de sécurité** (Debian) :
@@ -116,6 +113,6 @@ La gestion des paquets constitue une étape critique de la sécurisation d’un 
 >      ```
 >
 > - *Comparaison avec Lynis* :
->   Lynis ne distingue pas le niveau de durcissement interne des paquets ni leurs options de compilation. Cette recommandation repose sur une connaissance approfondie de la distribution et des paquets utilisés.
+>   Lynis ne distingue pas le niveau de durcissement interne des paquets ni leurs options de compilation, ce qui nécessite une connaissance approfondie de la distribution et des paquets utilisés ( et donc une intervention humaine, idéalement une expertise).
 >
 > - *Référence* : [ANSSI_LINUX, R60]

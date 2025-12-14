@@ -1,9 +1,9 @@
 > [!error] Effectuer des mises à jour de sécurité régulières
-> - *Objectifs et intérêts* : Tout système doit être maintenu en conditions de sécurité afin de limiter son exposition aux vulnérabilités connues. Les mises à jour corrigent des failles de sécurité, peuvent améliorer les mécanismes de protection existants et réduire la surface d’attaque exploitable. Une gestion proactive des correctifs permet de limiter les fenêtres d’exposition entre la divulgation d’une vulnérabilité et l’application de son correctif.
+> - *Objectifs et intérêts* : L'unique recommandation de cette section repose sur le fait que tout système doit être maintenu en conditions de sécurité afin de limiter son exposition aux vulnérabilités connues. Par conséquent, les mises à jour corrigent des failles de sécurité, peuvent améliorer les mécanismes de protection existants et réduire la surface d’attaque exploitable, sans oublier de mentionner qu'une gestion proactive des correctifs permet de limiter les fenêtres d’exposition entre la divulgation d’une vulnérabilité et l’application de son correctif.
 >
 > - *Commentaires* :
->   - Les correctifs de sécurité sont publiés en continu par les éditeurs et les distributions ; un système non maintenu devient rapidement vulnérable.
->   - Une **veille sécurité** est indispensable afin d’identifier les vulnérabilités affectant le système et de prioriser l’application des correctifs.
+>   - Les correctifs de sécurité sont publiés en continu par les éditeurs et les distributions (et ces derniers doivent impérativement être appliqués)
+>   - Une veille de sécurité est indispensable afin d’identifier les vulnérabilités affectant le système et de prioriser l’application des correctifs.
 >   - Sur Debian, les mises à jour de sécurité sont distribuées via les dépôts officiels (`security.debian.org`) et peuvent être automatisées de manière contrôlée.
 >
 > - *Procédure détaillée* :
@@ -60,8 +60,8 @@
 >      - Surveiller les CVE affectant les composants critiques du système.
 >
 > - *Comparaison avec Lynis* :
->   Lynis peut signaler l’absence de mises à jour récentes ou un système obsolète, mais **ne garantit pas** la mise en place d’une procédure régulière, réactive et documentée ni l’existence d’une veille sécurité. Le respect complet de cette règle repose sur une organisation opérationnelle et un suivi humain.
+>   Lynis permet de signaler l’absence de mises à jour récentes ou la présence d'un système obsolète.
 >
-> - *Référence* : [ANSSI_LINUX, R61] – Recommandations de configuration d’un système GNU/Linux, section *Veille et maintenance* :contentReference[oaicite:0]{index=0}
+> - *Référence* : [ANSSI_LINUX, R61] 
 
 
